@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Cost to Attend</th>
+        <th>Gross Sales</th>
+        <th>Return on Investment</th>
+
+
+    </tr>
+
+    <p th:unless="${events} and ${events.size()}">No Offsite Sales</p>
+
+    <tr th:each="event: ${events}">
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.location}"></td>
+        <td th:text="'$' + ${#numbers.formatDecimal(event.cost, 0, 2)}"></td>
+        <td th:text="'$' + ${#numbers.formatDecimal(event.sales, 0, 2)}"></td>
+        <td th:text="${#numbers.formatDecimal(((event.cost/event.sales)*100), 0, 2)} + '%'"></td>
+
+    </tr>
+</table>
+
+<nav th:replace="fragments :: footer"></nav>
+</body>
+</html>

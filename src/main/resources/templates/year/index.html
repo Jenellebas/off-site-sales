@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${years} and ${years.size()}">No Years</p>
+
+<table class="table">
+    <tr>
+        <th>Year</th>
+    </tr>
+    <tr th:each="year: ${years}">
+        <td th:text="${year.name}"></td>
+    </tr>
+</table>
+
+<a href="/year/add">Add a year</a>
+
+
+</body>
+</html>

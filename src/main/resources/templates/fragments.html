@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="${title}">All Offsite Events</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript"
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/boostrap.min.js"></script>
+</head>
+
+<body>
+
+<nav th:fragment = "navigation">
+    <a href="/event">Home</a> |
+    <a href="/month">View By Month</a> |
+    <a href="/year">View By Year</a>
+</br>
+</nav>
+
+<nav th:fragment = "footer">
+    <a href="/event/add">Add an Event</a> |
+    <a href="/event/remove">Remove an Event</a>
+</nav>
+
+</body>
+</html>
